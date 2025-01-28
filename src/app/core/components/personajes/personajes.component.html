@@ -1,17 +1,19 @@
-@for (character of personajes; track character.id) {
-    <mat-card class="example-card" appearance="outlined">
-        <mat-card-header>
-          <mat-card-title-group>
-            <mat-card-title>{{character.name}}</mat-card-title>
-            <mat-card-subtitle>{{ character.species }}</mat-card-subtitle>
-            <img mat-card-xl-image [src]='character.image' >
-          </mat-card-title-group>
-        </mat-card-header>
-        <mat-card-content>
-            Status: {{character.status}}
-            Origen: {{character.origin.name}}
-            Ubicación: {{character.location.name}}
-        </mat-card-content>
-      </mat-card>
-}
+<mat-card class="example-card" appearance="outlined" *ngFor="let character of personajes.data; track by: character.id">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{ character.name }}</mat-card-title>
+        <mat-card-subtitle>{{ character.species }}</mat-card-subtitle>
+        <img mat-card-xl-image [src]='character.image'>
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      Status: {{ character.status }}<br>
+      Origen: {{ character.origin.name }}<br>
+      Ubicación: {{ character.location.name }}
+    </mat-card-content>
+  </mat-card>
 
+  <mat-paginator [length]="personajes.data.length"
+                 [pageSize]="20"
+                 aria-label="Select page">
+  </mat-paginator>
