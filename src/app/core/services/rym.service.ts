@@ -9,10 +9,10 @@ export class RymService {
   private URLbase = 'https://rickandmortyapi.com/api'
   constructor(private http: HttpClient) { }
 
-  obtenerPersonajes(){
+  obtenerPersonajes(id: number){
     return this.http.get(`${this.URLbase}/character`)
   }
-  obtenerUnpersonaje(id: string){
+  obtenerPersonaje(id: string){
     return this.http.get(`${this.URLbase}/character/${id}`)
   }
 }

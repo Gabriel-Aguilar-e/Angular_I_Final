@@ -9,7 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-personajes',
-  imports: [MaterialModule,MatCardModule,],
+  imports: [MaterialModule,MatCardModule],
   templateUrl: './personajes.component.html',
   styleUrl: './personajes.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,7 +22,7 @@ export class PersonajesComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    this.rymService.obtenerPersonajes().subscribe((data: any) => {
+    this.rymService.obtenerPersonajes(id).subscribe((data: any) => {
       console.log(data);
       this.personajes = data.results;
     })

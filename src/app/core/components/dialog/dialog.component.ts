@@ -25,7 +25,14 @@ export class DialogComponent implements OnInit {
   personaje: any;
   readonly dialogRef = inject(MatDialogRef<DialogComponent>);
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: { id: string },
+    @Inject(MAT_DIALOG_DATA) public data: {
+image: any;
+location: any;
+origin: any;
+gender: any;
+type: any;
+species: string; id: string, name: string 
+},
     private rymService: RymService
   ) {}
 
